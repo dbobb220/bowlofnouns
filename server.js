@@ -4,7 +4,7 @@ const debug = require("debug")("index");
 const morgan = require("morgan");
 const path = require("path");
 
-const port = 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(morgan("tiny"));
@@ -14,5 +14,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  debug(`listening on port ${chalk.green("3000")}`);
+  debug(`listening on port ${chalk.green(port)}`);
 });
